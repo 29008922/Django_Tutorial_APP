@@ -5,17 +5,16 @@
     <h2>
         All Cards
     </h2>
-    <a href="{% url 'card-create' %}" role="button">
-        ✨ Create New Card
-    </a>
+        <a href="{% url 'card-create' %}" role="button">
+        <button>✨Create New Card</button>
+        </a>
     {% for card in card_list %}
         {% ifchanged %}
-            <h3>🗃 {{ card.box }} Box</h3>
+            <h3>🗃 {{ card.box | ordinal }} Box</h3>
+            {% include "cards/card.html" %}
         {% endifchanged %}
-    {% include "cards/card.html" %}
-    <article>
-        <article>
-            {{ card }}
-        </article>
+            <article>
+                {{ card }}
+            </article>
     {% endfor %}
 {% endblock content %}

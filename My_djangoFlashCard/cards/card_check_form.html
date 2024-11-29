@@ -1,0 +1,13 @@
+<hr>
+8	        <a href="{% url 'card-update' card.id %}" role="button">
+9	            ✏️ Edit Card
+10	        </a>
+11	    {% else %}
+12	        <details>
+13	            <summary>Reveal Answer</summary>
+14	            <p>{{ card.answer }}</p>
+15	        </details>
+16	        <hr>
+18	        {% include "cards/card_check_form.html" with solved=False %}
+19	    {% endif %}
+20	</article>
